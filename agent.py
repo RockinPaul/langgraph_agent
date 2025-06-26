@@ -161,3 +161,11 @@ def notify_mr_hugg(state: EmailState):
 
     # We're done processing this email
     return {}
+
+
+def route_email(state: EmailState) -> str:
+    """Determine the next step based on spam classification"""
+    if state["is_spam"]:
+        return "spam"
+    else:
+        return "legitimate"
