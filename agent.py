@@ -30,7 +30,11 @@ load_dotenv()
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
 # Initialize our LLM
-model = ChatOpenAI(temperature=0, openai_api_key=openai_api_key)
+model = ChatOpenAI(
+    model="o4-mini-2025-04-16",
+    temperature=0,
+    openai_api_key=openai_api_key,
+)
 
 
 def read_email(state: EmailState):
