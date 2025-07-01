@@ -86,7 +86,7 @@ def divide(a: int, b: int) -> float:
 tools = [divide, extract_text]
 
 llm = ChatOpenAI(
-    model="o4-mini-2025-04-16",
+    model="gpt-4.1-nano-2025-04-14",
     openai_api_key=openai_api_key,
 )
 llm_with_tools = llm.bind_tools(tools, parallel_tool_calls=False)
@@ -137,3 +137,11 @@ react_graph = builder.compile()
 
 # Show the butler's thought process
 display(Image(react_graph.get_graph(xray=True).draw_mermaid_png(output_file_path="document_analysis_graph.png")))
+
+# Process a message
+messages = [HumanMessage(content="Divide 6790 by 5")]
+messages = react_graph.invoke({"messages": messages, "input_file": None})
+
+# Show the messages
+for m in messages['messages']:
+    m.pretty_print()
