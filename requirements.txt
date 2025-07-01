@@ -3,3 +3,5 @@ langchain_openai
 dotenv
 langfuse
 langchain
+langchain_core
+IPython
