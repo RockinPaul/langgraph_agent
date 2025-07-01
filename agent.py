@@ -258,3 +258,5 @@ legitimate_result = compiled_graph.invoke(
     },
     config={"callbacks": [langfuse_handler]},
 )
+
+compiled_graph.get_graph().draw_mermaid_png(output_file_path="email_flow.png")
